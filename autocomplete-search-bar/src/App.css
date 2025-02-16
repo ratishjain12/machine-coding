@@ -1,0 +1,23 @@
+.search-list {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 5px 3px 20px rgb(92, 82, 82);
+  width: 600px;
+  gap: 10px;
+  padding: 10px;
+  max-height: 500px;
+  overflow-y: scroll;
+  margin: 0 auto;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.search-item {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background-color: lightgray;
+}
