@@ -1,0 +1,104 @@
+[
+  {
+    "id": "1",
+    "name": "file-explorer",
+    "isFolder": true,
+    "children": [
+      {
+        "id": "2",
+        "name": "src",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "3",
+            "name": "components",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "4",
+                "name": "FileExplorer.js",
+                "isFolder": false
+              },
+              {
+                "id": "5",
+                "name": "FileItem.js",
+                "isFolder": false
+              },
+              {
+                "id": "6",
+                "name": "FolderTree.js",
+                "isFolder": false
+              }
+            ]
+          },
+          {
+            "id": "7",
+            "name": "styles",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "8",
+                "name": "main.css",
+                "isFolder": false
+              },
+              {
+                "id": "9",
+                "name": "explorer.css",
+                "isFolder": false
+              }
+            ]
+          },
+          {
+            "id": "10",
+            "name": "utils",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "11",
+                "name": "fileHelpers.js",
+                "isFolder": false
+              }
+            ]
+          },
+          {
+            "id": "12",
+            "name": "App.js",
+            "isFolder": false
+          },
+          {
+            "id": "13",
+            "name": "index.js",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "14",
+        "name": "public",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "15",
+            "name": "index.html",
+            "isFolder": false
+          },
+          {
+            "id": "16",
+            "name": "favicon.ico",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "17",
+        "name": "package.json",
+        "isFolder": false
+      },
+      {
+        "id": "18",
+        "name": "README.md",
+        "isFolder": false
+      }
+    ]
+  }
+]

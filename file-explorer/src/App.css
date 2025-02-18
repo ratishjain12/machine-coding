@@ -1,0 +1,10 @@
+.container {
+  margin-left: 20px;
+}
+.list-item {
+  display: flex;
+  font-size: 18px;
+  gap: 4px;
+  cursor: pointer;
+  align-items: center;
+}
