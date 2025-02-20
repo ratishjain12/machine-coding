@@ -111,14 +111,14 @@ function App() {
     });
   };
 
-  const deleteFolderRecursive = (nodes, id) => {
+  const deleteRecursive = (nodes, id) => {
     return nodes
       .filter((node) => node.id !== id)
       .map((node) => {
         if (node.children) {
           return {
             ...node,
-            children: deleteFolderRecursive(node.children, id),
+            children: deleteRecursive(node.children, id),
           };
         }
         return node;
@@ -134,7 +134,7 @@ function App() {
   };
 
   const handleDeleteNode = (id) => {
-    setData((prev) => deleteFolderRecursive(prev, id));
+    setData((prev) => deleteRecursive(prev, id));
   };
 
   const handleAddFile = (id) => {
