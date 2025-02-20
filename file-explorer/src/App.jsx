@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import mockdata from "./data.json";
-import { FolderOpen } from "lucide-react";
+import { File, FolderOpen } from "lucide-react";
 import "./App.css";
 import { Trash } from "lucide-react";
-const List = ({ nodeList, handleAddNode, handleDeleteNode }) => {
+const List = ({ nodeList, handleAddNode, handleDeleteNode, handleAddFile }) => {
   const [expanded, setExpanded] = useState({});
 
   return (
@@ -32,6 +32,11 @@ const List = ({ nodeList, handleAddNode, handleDeleteNode }) => {
                   <FolderOpen size={15} />
                 </span>
               )}
+              {node.isFolder && (
+                <span onClick={() => handleAddFile(node.id)}>
+                  <File size={15} />
+                </span>
+              )}
 
               <span onClick={() => handleDeleteNode(node.id)}>
                 <Trash size={15} />
@@ -42,6 +47,7 @@ const List = ({ nodeList, handleAddNode, handleDeleteNode }) => {
                 nodeList={node.children}
                 handleAddNode={handleAddNode}
                 handleDeleteNode={handleDeleteNode}
+                handleAddFile={handleAddFile}
               />
             )}
           </div>
@@ -80,6 +86,31 @@ function App() {
     });
   };
 
+  const addFileRecursive = (nodes, id, name) => {
+    return nodes.map((node) => {
+      if (node.id === id) {
+        return {
+          ...node,
+          children: [
+            ...(node.children || []),
+            {
+              id: Date.now().toString(),
+              name,
+              isFolder: false,
+            },
+          ],
+        };
+      }
+      if (node.children) {
+        return {
+          ...node,
+          children: addFileRecursive(node.children, id, name),
+        };
+      }
+      return node;
+    });
+  };
+
   const deleteFolderRecursive = (nodes, id) => {
     return nodes
       .filter((node) => node.id !== id)
@@ -106,6 +137,12 @@ function App() {
     setData((prev) => deleteFolderRecursive(prev, id));
   };
 
+  const handleAddFile = (id) => {
+    let name = prompt("Enter file name");
+    if (!name) return;
+    setData((prev) => addFileRecursive(prev, id, name));
+  };
+
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>File Explorer</h1>
@@ -113,6 +150,7 @@ function App() {
         nodeList={data}
         handleAddNode={handleAddNode}
         handleDeleteNode={handleDeleteNode}
+        handleAddFile={handleAddFile}
       />
     </div>
   );
